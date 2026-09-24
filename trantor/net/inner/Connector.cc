@@ -46,6 +46,12 @@ void Connector::start()
 }
 void Connector::restart()
 {
+    loop_->runInLoop([thisPtr=shared_from_this()]() {
+        thisPtr->retryInterval_ = kInitRetryDelayMs;
+        thisPtr->status_ = Status::Disconnected;
+        thisPtr->connect_ = true;
+        thisPtr->startInLoop();
+    });
 }
 void Connector::stop()
 {

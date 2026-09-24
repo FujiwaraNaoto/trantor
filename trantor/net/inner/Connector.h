@@ -63,6 +63,9 @@ class Connector : public NonCopyable,
     void start();
     void restart();
     void stop();
+    void enableRetry(){
+        retry_ = true;
+    }
 
   private:
     NewConnectionCallback newConnectionCallback_;
