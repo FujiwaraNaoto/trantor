@@ -55,6 +55,7 @@ void Connector::restart()
 }
 void Connector::stop()
 {
+    connect_ = false;
     status_ = Status::Disconnected;
     if (loop_->isInLoopThread())
     {
