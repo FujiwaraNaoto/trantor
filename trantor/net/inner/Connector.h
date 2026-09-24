@@ -63,7 +63,8 @@ class Connector : public NonCopyable,
     void start();
     void restart();
     void stop();
-    void enableRetry(){
+    void enableRetry()
+    {
         retry_ = true;
     }
 
